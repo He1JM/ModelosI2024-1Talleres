@@ -1,0 +1,92 @@
+"""
+Workshop-1: Intento de código para una empresa constructora de vehículos.
+
+Author: Henry Jhonmarcos Osorio Sánchez
+Date: 15/03/2024
+Update: 15/03/2024
+
+"""
+
+class Vehiculo:
+  def __init__(self, chasis: str, modelo: str, anio: str, consumo: int):
+    self.chasis = chasis
+    self.modelo = modelo
+    self.anio = anio
+    self.consumo = consumo
+
+class Motor:
+  def __init__(self, nmotor: str, tmotor: str, potencia: int, peso: int):
+    self.nmotor = nmotor
+    self.tmotor = tmotor
+    self.potencia = potencia
+    self.peso = peso
+
+class Carro(Vehiculo):
+  def __init__(self, chasis: str, modelo: str, anio: str, consumo: int, placa: str):
+    super().__init__(modelo, anio, consumo)
+
+    self.placa = placa
+
+class Camion(Vehiculo):
+  def __init__(self, chasis: str, modelo: str, anio: str, consumo: int, prodamiento: str):
+    super().__init__(modelo, anio, consumo)
+
+    self.prodamiento = prodamiento
+
+class Yate(Vehiculo):
+  def __init__(self, chasis: str, modelo: str, anio: str, consumo: int, rotor: str):
+    super().__init__(modelo, anio, consumo)
+
+    self.rotor = rotor
+
+class Motocicleta(Vehiculo):
+  def __init__(self, chasis: str, modelo: str, anio: str, consumo: int, cilindraje: str):
+    super().__init__(modelo, anio, consumo)
+
+    self.cilindraje = cilindraje
+
+def ConsumoMotor(Vehiculo, Motor):
+  if(Vehiculo.chasis == 'A'):
+    Vehiculo.consumo = ((1.1 * Motor.potencia) + (0.2 * Motor.peso)) - (0.3)
+  else:
+    Vehiculo.consumo = ((1.1 * Motor.potencia) + (0.2 * Motor.peso)) - (0.5)
+
+  return(Vehiculo.consumo)
+
+
+# ================== MENU ================== #
+MENSAJE = """
+"1": Crear Motor
+"2": Crear Carro
+"3": Crear Motocicleta
+"4": Crear Camion
+"5": Crear Yate
+"6": Ver todos los motores.
+"7": Ver todos los vehículos.
+
+"0": Salir
+"""
+
+print(MENSAJE)
+opcion = int(input("Ingrese una opción:"))
+
+while opcion != 0:
+  if opcion == 1:
+    print("Creando motor.")
+  elif opcion == 2:
+    print("Creando carro.")
+  elif opcion == 3:
+    print("Creando motocicleta.")
+  elif opcion == 4:
+    print("Creando camion.")    
+  elif opcion == 5:
+    print("Creando yate.")    
+  elif opcion == 6:
+    print("Ver los motores.")    
+  elif opcion == 7:
+    print("Ver los vehículos.")
+  else:
+    print("Opción NO válida.")
+  
+  print(MENSAJE)
+  opcion = int(input("Ingrese otra opción:"))
